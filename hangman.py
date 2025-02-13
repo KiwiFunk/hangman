@@ -14,18 +14,18 @@ round = 0
 #create a function to chose a word, and display it as a series of underscores
 def set_word():
     """
-    Take a word from input array and set it as the word_to_guess. Populate current_guess with underscores equivalent to word length.
+    Return a tuple containing the target word to guess, and an obfuscated list of equivalent length
     """
-    global word_to_guess
-    global current_word
+    obfuscated = []
+    word = random.choice(words)
+    for char in word:
+        obfuscated.append('_')
 
-    word_to_guess = random.choice(words)
-    for char in word_to_guess:
-        current_guess.append('_')
+    return word, obfuscated
     
 
-#Start Game Loop while player lives > 0
 
+#Start Game Loop while player lives > 0
 while lives > 0:
     round += 1
     print(f'Current Round: {round}')
