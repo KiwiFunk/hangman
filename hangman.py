@@ -21,6 +21,13 @@ def set_word():
 
     return word, obfuscated
 
+def strikethrough(char):
+    """
+    Adds a strikethrough to input char and returns it
+    """
+    return char + '\u0336'
+
+
 words = set_word()
 target_word = words[0]
 current_guess = words[1]
@@ -32,6 +39,7 @@ while lives > 0:
     print(f'Current Round: {round}')
     print()
     print(current_guess)
+    print(f"Incorrect Guesses: {incorrect_guesses}")
     print('\n')
 
     player_guess = input("Guess a Letter!")
@@ -43,7 +51,7 @@ while lives > 0:
 
     else:
         lives -= 1
-        incorrect_guesses.append(player_guess)
+        incorrect_guesses.append(strikethrough(player_guess))
 
 
 
