@@ -21,12 +21,6 @@ def set_word():
 
     return word, obfuscated
 
-def strikethrough(char):
-    """
-    Adds a strikethrough to input char and returns it
-    """
-    return char + '\u0336'
-
 
 words = set_word()
 target_word = words[0]
@@ -51,7 +45,7 @@ while lives > 0:
 
     else:
         lives -= 1
-        incorrect_guesses.append(strikethrough(player_guess))
+        incorrect_guesses.append(player_guess)
 
 
 
