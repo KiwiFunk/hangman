@@ -21,6 +21,12 @@ def set_word():
 
     return word, obfuscated
 
+def get_player_input(message):
+    """
+    Get input from player, make sure that it's only a single character, then return if valid
+    """
+    input_value = input(f'{message} \n')
+    return input_value
 
 words = set_word()
 target_word = words[0]
@@ -36,7 +42,7 @@ while lives > 0:
     print(f"Incorrect Guesses: {', '.join(incorrect_guesses)}")
     print('\n')
 
-    player_guess = input("Guess a Letter! \n")
+    player_guess = get_player_input('Guess a Letter!')
 
     #Use containment operator to check if a letter is in the word. If it is, update the current guess with the letter, else, remove a life from the player and add guess to incorrect guesses list.
     if player_guess in target_word:
