@@ -26,7 +26,10 @@ def get_player_input(message):
     Get input from player, make sure that it's only a single character, then return if valid
     """
     input_value = input(f'{message} \n')
+    while len(input_value) != 1:
+        input_value = input()
     return input_value
+    
 
 words = set_word()
 target_word = words[0]
