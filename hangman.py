@@ -57,10 +57,14 @@ while lives > 0:
         lives -= 1
         incorrect_guesses.append(player_guess)
 
+    #If every letter is correctly guessed, break from loop
+    if '_' not in current_guess:
+        break;
 
-
-    #create a function to update the word with the guessed letter. If every letter is guessed, break from loop
-
-#end game console logs. You win/Game Over
+#End Game Scenarios
+if lives > 0:
+    print("Congrats, you win!")
+else:
+    print("You lose :c")
 
 #promt user to play again
