@@ -1,4 +1,3 @@
-#import packages
 import os
 import random
 
@@ -49,8 +48,10 @@ while lives > 0:
 
     #Use containment operator to check if a letter is in the word. If it is, update the current guess with the letter, else, remove a life from the player and add guess to incorrect guesses list.
     if player_guess in target_word:
-        i = target_word.index(player_guess)
-        current_guess[i] = player_guess
+        #Using enumerate() to simplify indexing and iteration
+        for i, char in enumerate(target_word):
+            if char == player_guess:
+                current_guess[i] = player_guess
 
     else:
         lives -= 1
