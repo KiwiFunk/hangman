@@ -13,6 +13,9 @@ round = 0
 
 #create a function to chose a word, and display it as a series of underscores
 def set_word():
+    """
+    Take a word from input array and set it as the word_to_guess. Populate current_guess with underscores equivalent to word length.
+    """
     global word_to_guess
     global current_word
 
@@ -22,6 +25,15 @@ def set_word():
     
 
 #Start Game Loop while player lives > 0
+
+while lives > 0:
+    round += 1
+    print(f'Current Round: {round}')
+    print()
+    print(current_guess)
+    print('\n')
+
+    player_guess = input("Guess a Letter!")
 
 #create a function to check if a letter is in the word. If it is, update the word with the letter, else, remove a life from the player
 
