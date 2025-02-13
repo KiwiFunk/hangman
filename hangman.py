@@ -27,6 +27,7 @@ current_guess = words[1]
 
 #Start Game Loop while player lives > 0
 while lives > 0:
+    os.system('cls')
     round += 1
     print(f'Current Round: {round}')
     print()
@@ -35,7 +36,16 @@ while lives > 0:
 
     player_guess = input("Guess a Letter!")
 
-    #create a function to check if a letter is in the word. If it is, update the word with the letter, else, remove a life from the player
+    #Use containment operator to check if a letter is in the word. If it is, update the current guess with the letter, else, remove a life from the player and add guess to incorrect guesses list.
+    if player_guess in target_word:
+        i = target_word.index(player_guess)
+        current_guess[i] = player_guess
+
+    else:
+        lives -= 1
+        incorrect_guesses.append(player_guess)
+
+
 
     #create a function to update the word with the guessed letter. If every letter is guessed, break from loop
 
