@@ -30,13 +30,13 @@ current_guess = words[1]
 while lives > 0:
     os.system('cls')
     round += 1
-    print(f'Current Round: {round}')
-    print()
-    print(current_guess)
-    print(f"Incorrect Guesses: {incorrect_guesses}")
+
+    print(f'Current Round: {round} \n')
+    print(f'{current_guess} \n')
+    print(f"Incorrect Guesses: {', '.join(incorrect_guesses)}")
     print('\n')
 
-    player_guess = input("Guess a Letter!")
+    player_guess = input("Guess a Letter! \n")
 
     #Use containment operator to check if a letter is in the word. If it is, update the current guess with the letter, else, remove a life from the player and add guess to incorrect guesses list.
     if player_guess in target_word:
