@@ -22,17 +22,17 @@ def set_word():
 
 def get_player_input(message):
     """
-    Get input from player, make sure that it's only a single character, then return if valid
+    Get input from player, make sure that it's only a single character, then return when valid
     """
     input_value = input(f'{message} \n')
     while len(input_value) != 1:
         input_value = input()
     return input_value
     
+#OUTER LOOP FOR GAME REPEAT HERE
 
-words = set_word()
-target_word = words[0]
-current_guess = words[1]
+#Unpack tuple return from set_word
+target_word, current_guess = set_word()
 
 #Start Game Loop while player lives > 0
 while lives > 0:
