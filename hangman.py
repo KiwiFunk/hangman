@@ -69,7 +69,7 @@ def update_game_display(current_round, current_lives, current_guess_word, curren
     os.system('cls')
 
     print(f'Current Round: {current_round}\tLives: {current_lives}\n')
-    print(f'{current_guess_word} \n')
+    print(f'[ {' '.join(current_guess_word)} ]\n')
     print(f"Incorrect Guesses: {', '.join(current_incorrect_guesses)}")
     print('\n')
     
