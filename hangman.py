@@ -41,18 +41,23 @@ def get_player_input(message):
         input_value = input()
     return input_value
     
-#OUTER LOOP FOR GAME REPEAT HERE
+#Outer Game loop to handle each game
 while game_running:
+
+    os.system('cls')
+
     #Prompt user to select a set of words to play from
     words = get_wordlist()
+
     #Reset variables for new round
     lives = 5
     round = 0
     incorrect_guesses = []
+
     #Unpack tuple return from set_word
     target_word, current_guess = set_word()
 
-    #Start Game Loop while player lives > 0
+    #Inner game loop to handle rounds of current game
     while lives > 0:
         os.system('cls')
         round += 1
@@ -80,6 +85,9 @@ while game_running:
             break;
 
     #End Game Scenarios
+
+    os.system('cls')
+    
     if lives > 0:
         print("Congrats, you win!")
     else:
