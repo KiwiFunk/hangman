@@ -59,7 +59,7 @@ def get_player_input(message, current_guess_word = '', current_incorrect_guesses
             continue
         break
 
-    return input_value
+    return input_value.lower()
 
 def update_game_display(current_round, current_lives, current_guess_word, current_incorrect_guesses):
     """
@@ -81,6 +81,8 @@ def update_game_display(current_round, current_lives, current_guess_word, curren
     print(f'[ {' '.join(current_guess_word)} ]\n')
     print(f"Incorrect Guesses: {', '.join(current_incorrect_guesses)}")
     print('\n')
+
+#Initial game start, display logo and prompt 'Enter any key to start'
     
 #Outer Game loop to handle each game
 while game_running:
