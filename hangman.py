@@ -123,6 +123,7 @@ while game_running:
         print("Congrats, you win!")
     else:
         print("You lose :c")
+        print(f"The correct word was: {target_word}\n")
 
     #prompt user to play again
     play_again = get_player_input("Do you want to play again? (y/n)")
