@@ -23,7 +23,6 @@ def get_wordlist():
             print("Invalid input. Please enter a valid number from the options above.")
     return return_wordlist(int(user_input))
 
-#create a function to chose a word, and display it as a series of underscores
 def set_word():
     """
     Return a tuple containing the target word to guess, and an obfuscated list of equivalent length
@@ -41,16 +40,31 @@ def set_word():
 def get_player_input(message):
     """
     Get input from player, make sure that it's only a single character, then return when valid
+
+    Parameters:
+    message (string): Text to display in the input prompt.
+
+    Returns:
+    string value
     """
     input_value = input(f'{message} \n')
     while len(input_value) != 1:
         input_value = input()
     return input_value
 
-#pass round, lives etc as parameters to make sure it doesnt rely on variables that may not be called yet
 def update_game_display(current_round, current_lives, current_guess_word, current_incorrect_guesses):
     """
-    Update the console with the current game status
+    Update the console with the current game status. 
+    Take variables as parameters to make sure we dont rely on variables that may not exist yet.
+
+    Parameters:
+    current_round (int): Current round number of this game.
+    current_lives(int): Remaining player lives.
+    current_guess_word (list): The current state of the word being guessed.
+    current_incorrect_guesses (list): A list of any incorrect guesses thus far.
+
+    Returns:
+    None
     """
     os.system('cls')
 
