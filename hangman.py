@@ -30,7 +30,10 @@ def set_word():
     obfuscated = []
     word = random.choice(words)
     for char in word:
-        obfuscated.append('_')
+        if char == ' ':
+            obfuscated.append(char)
+        else:
+            obfuscated.append('_')
 
     return word, obfuscated
 
