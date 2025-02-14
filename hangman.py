@@ -37,19 +37,28 @@ def set_word():
 
     return word, obfuscated
 
-def get_player_input(message):
+def get_player_input(message, current_guess_word = '', current_incorrect_guesses = ''):
     """
-    Get input from player, make sure that it's only a single character, then return when valid
+    Get input from player, perform validation checks such as input length, then return the input.
 
     Parameters:
     message (string): Text to display in the input prompt.
+    current_guess_word(list): Optional parameter to check if input exists in list. Defaults to empty string.
+    current_incorrect_guesses(list): Optional parameter to check if input exists in list. Defaults to empty string.
 
     Returns:
-    string value
+    Input value as a string.
     """
-    input_value = input(f'{message} \n')
-    while len(input_value) != 1:
-        input_value = input()
+    while True:
+        input_value = input(f'{message}\n')
+        if len(input_value) != 1:
+            print("Invalid input. Please enter a single character.")
+            continue
+        if input_value in current_guess_word or input_value in current_incorrect_guesses:
+            print("You already tried that letter!")
+            continue
+        break
+
     return input_value
 
 def update_game_display(current_round, current_lives, current_guess_word, current_incorrect_guesses):
@@ -96,7 +105,7 @@ while game_running:
 
         update_game_display(round, lives, current_guess, incorrect_guesses)
 
-        player_guess = get_player_input('Guess a Letter!')
+        player_guess = get_player_input('Guess a Letter!', current_guess, incorrect_guesses)
 
         #Use containment operator to check if a letter is in the word. If it is, update the current guess with the letter, else, remove a life from the player and add guess to incorrect guesses list.
         if player_guess in target_word:
