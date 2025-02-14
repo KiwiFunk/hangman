@@ -9,7 +9,9 @@ def get_wordlist():
     """
     Prompts the user to select a set of words, then returns the selected set as a list.
     """
-    options = "1) Fruits\n2) Countries\n3) Animals"
+    #Add any new sets of words to this string. Make sure to use the correct number/key
+    options = "1) Fruits\n2) Countries\n3) Animals\n4) Food\n5) English words"
+
     print(f"Welcome to hangman! Please select a set of words to play from!\n{options}")
 
     while True:
