@@ -62,7 +62,7 @@ while game_running:
         os.system('cls')
         round += 1
 
-        print(f'Current Round: {round} \n')
+        print(f'Current Round: {round}\tLives: {lives}\n')
         print(f'{current_guess} \n')
         print(f"Incorrect Guesses: {', '.join(incorrect_guesses)}")
         print('\n')
