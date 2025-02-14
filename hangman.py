@@ -5,7 +5,6 @@ import random
 words = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew', 'kiwi', 'lemon', 'mango', 'nectarine', 'orange', 'pear', 'quince', 'raspberry', 'strawberry', 'tangerine', 'ugli', 'watermelon', 'xigua', 'yuzu', 'zucchini']
 
 incorrect_guesses = []
-round = 0
 game_running = True
 
 #create a function to chose a word, and display it as a series of underscores
@@ -31,8 +30,9 @@ def get_player_input(message):
     
 #OUTER LOOP FOR GAME REPEAT HERE
 while game_running:
-    #Set lives for new round
+    #Set lives and counter for new round
     lives = 5
+    round = 0
     #Unpack tuple return from set_word
     target_word, current_guess = set_word()
 
