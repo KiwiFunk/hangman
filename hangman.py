@@ -1,11 +1,24 @@
 import os
 import random
+from wordsets import return_wordlist
 
 #setup game variables
-words = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew', 'kiwi', 'lemon', 'mango', 'nectarine', 'orange', 'pear', 'quince', 'raspberry', 'strawberry', 'tangerine', 'ugli', 'watermelon', 'xigua', 'yuzu', 'zucchini']
-
-incorrect_guesses = []
 game_running = True
+
+def get_wordlist():
+    """
+    Prompts the user to select a set of words, then returns the selected set as a list.
+    """
+    options = "1) Fruits\n2) Countries\n3) Animals"
+    print(f"Welcome to hangman! Please select a set of words to play from!\n{options}")
+
+    while True:
+        user_input = get_player_input("Enter the number for the set you want to play!")
+        if user_input.isdigit() and f"{user_input})" in options:
+            break
+        else:
+            print("Invalid input. Please enter a valid number from the options above.")
+    return return_wordlist(int(user_input))
 
 #create a function to chose a word, and display it as a series of underscores
 def set_word():
@@ -30,9 +43,12 @@ def get_player_input(message):
     
 #OUTER LOOP FOR GAME REPEAT HERE
 while game_running:
-    #Set lives and counter for new round
+    #Prompt user to select a set of words to play from
+    words = get_wordlist()
+    #Reset variables for new round
     lives = 5
     round = 0
+    incorrect_guesses = []
     #Unpack tuple return from set_word
     target_word, current_guess = set_word()
 
