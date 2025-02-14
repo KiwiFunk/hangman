@@ -83,7 +83,16 @@ def update_game_display(current_round, current_lives, current_guess_word, curren
     print('\n')
 
 #Initial game start, display logo and prompt 'Enter any key to start'
-    
+os.system('cls')
+print(r"""                                      
+  /\  /\__ _ _ __   __ _ _ __ ___   __ _ _ __  
+ / /_/ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+/ __  / (_| | | | | (_| | | | | | | (_| | | | |
+\/ /_/ \__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                   |___/                       
+""")
+input("Enter to start\n")
+
 #Outer Game loop to handle each game
 while game_running:
 
