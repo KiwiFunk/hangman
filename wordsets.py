@@ -12,7 +12,7 @@ def return_wordlist(set):
 wordsets = {
     1: [
         'apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew', 'kiwi', 'lemon', 'mango', 'nectarine', 'orange', 'pear', 
-        'quince', 'raspberry', 'strawberry', 'tangerine', 'ugli', 'watermelon', 'xigua', 'yuzu', 'zucchini'
+        'quince', 'raspberry', 'strawberry', 'tangerine', 'ugli', 'watermelon', 'durian', 'yuzu', 'zucchini'
     ],
     2: [
         'argentina', 'australia', 'austria', 'bangladesh', 'belgium', 'brazil', 'canada', 'chile', 'china', 'colombia', 

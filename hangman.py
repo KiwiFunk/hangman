@@ -1,5 +1,6 @@
 import os
 import random
+import time
 from wordsets import return_wordlist
 
 #setup game variables
@@ -45,6 +46,18 @@ def get_player_input(message):
     while len(input_value) != 1:
         input_value = input()
     return input_value
+
+#pass round, lives etc as parameters to make sure it doesnt rely on variables that may not be called yet
+def update_game_display(current_round, current_lives, current_guess_word, current_incorrect_guesses):
+    """
+    Update the console with the current game status
+    """
+    os.system('cls')
+
+    print(f'Current Round: {current_round}\tLives: {current_lives}\n')
+    print(f'{current_guess_word} \n')
+    print(f"Incorrect Guesses: {', '.join(current_incorrect_guesses)}")
+    print('\n')
     
 #Outer Game loop to handle each game
 while game_running:
@@ -64,13 +77,10 @@ while game_running:
 
     #Inner game loop to handle rounds of current game
     while lives > 0:
-        os.system('cls')
+        
         round += 1
 
-        print(f'Current Round: {round}\tLives: {lives}\n')
-        print(f'{current_guess} \n')
-        print(f"Incorrect Guesses: {', '.join(incorrect_guesses)}")
-        print('\n')
+        update_game_display(round, lives, current_guess, incorrect_guesses)
 
         player_guess = get_player_input('Guess a Letter!')
 
@@ -87,6 +97,8 @@ while game_running:
 
         #If every letter is correctly guessed, break from loop
         if '_' not in current_guess:
+            update_game_display(round, lives, current_guess, incorrect_guesses)
+            time.sleep(0.7)
             break;
 
     #End Game Scenarios
