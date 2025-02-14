@@ -151,3 +151,4 @@ while game_running:
         play_again = get_player_input("Please enter y or n")
     if play_again == 'n':
         game_running = False
+        os.system('cls')
